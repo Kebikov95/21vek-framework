@@ -216,7 +216,7 @@ this.FeatureBackground();
  testRunner.Given("I click the search button Submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 31
- testRunner.Given("I click under the product \'Фен Philips HP8238/00\' by the link inquire about recei" +
+ testRunner.Given("I click under the product \'Фен Philips HP8233/00\' by the link inquire about recei" +
                         "pt", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 32

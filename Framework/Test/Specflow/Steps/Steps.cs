@@ -8,7 +8,7 @@ using TechTalk.SpecFlow;
 namespace AutomationFramework.Test.Specflow.Steps
 {
     [Binding]
-    public sealed class NotebookSteps
+    public sealed class Steps
     {
         private readonly ScenarioContext _scenarioContext;
         private Page homePage;
@@ -20,7 +20,7 @@ namespace AutomationFramework.Test.Specflow.Steps
         private string notificationText;
         private bool isDisplayRequiredFields;
 
-        public NotebookSteps(ScenarioContext scenarioContext)
+        public Steps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
         }

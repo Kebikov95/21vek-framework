@@ -28,7 +28,7 @@ Scenario: Check for messages about empty required fields
 Scenario: Check the presence of the text in the waiting list under the product
 	Given I enter the word 'Фен Philips HP' in the Search field
 	Given I click the search button Submit
-	Given I click under the product 'Фен Philips HP8238/00' by the link inquire about receipt
+	Given I click under the product 'Фен Philips HP8233/00' by the link inquire about receipt
 	Given I click the button Submit
 	When I check for messages about empty required fields in modal window
 	Then I should see messages about empty required fields

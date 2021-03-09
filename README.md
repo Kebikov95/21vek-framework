@@ -3,7 +3,7 @@ ___
 ### Design Patterns
 To write the pages of this framework, the following design patterns were used: Decorator, Singleton, Page Object, Page Elment.
 ___
-### The tests were written using the [NUnit](https://nunit.org/) and [SpecFlow](https://specflow.org/) testing frameworks.
+### The tests were written using the [NUnit](https://nunit.org/) and [SpecFlow](https://specflow.org/) testing frameworks
 
 #### NUnit
 > NUnit is a unit-testing framework for all .Net languages. Initially ported from JUnit, the current production release, version 3, has been completely rewritten with many new features and support for a wide range of .NET platforms.
@@ -31,15 +31,15 @@ public void CheckMessagesWithEmptyRequiredFields()
             .ClickToShowProductsButton()
             .CkickToAddToCartButton(notebookName);
 
-        string priceInNotebookPage = notebooksPage.GetTextFromDiscountPriceLabelLocator(notebookName);
-        ChartPage chartPage = notebooksPage.GetHeader().ClickToChartButton();
-        string priceInChartPage = chartPage.GetTextFromDiscountPriceLabel(notebookName);
-        Assert.AreEqual(priceInChartPage, priceInNotebookPage, "Prices aren't equal.");
+    string priceInNotebookPage = notebooksPage.GetTextFromDiscountPriceLabelLocator(notebookName);
+    ChartPage chartPage = notebooksPage.GetHeader().ClickToChartButton();
+    string priceInChartPage = chartPage.GetTextFromDiscountPriceLabel(notebookName);
+    Assert.AreEqual(priceInChartPage, priceInNotebookPage, "Prices aren't equal.");
 
-        bool isDisplayRequiredFields = chartPage.ClickToCheckoutOrderButton()
-            .ClickToConfirmOrderButton()
-            .IsDisplayRequiredFieldsMessage();
-        Assert.IsTrue(isDisplayRequiredFields, "The required massages haven't existed on page.");
+    bool isDisplayRequiredFields = chartPage.ClickToCheckoutOrderButton()
+        .ClickToConfirmOrderButton()
+        .IsDisplayRequiredFieldsMessage();
+    Assert.IsTrue(isDisplayRequiredFields, "The required massages haven't existed on page.");
 }
 ```
 
