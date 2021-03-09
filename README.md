@@ -3,7 +3,7 @@ ___
 ### Design Patterns
 To write the pages of this framework, the following design patterns were used: Decorator, Singleton, Page Object, Page Elment.
 ___
-### The tests were written using the [NUnit](https://nunit.org/) and [SpecFlowtesting](https://specflow.org/) framework.
+### The tests were written using the [NUnit](https://nunit.org/) and [SpecFlow](https://specflow.org/) testing frameworks.
 
 #### NUnit
 > NUnit is a unit-testing framework for all .Net languages. Initially ported from JUnit, the current production release, version 3, has been completely rewritten with many new features and support for a wide range of .NET platforms.
