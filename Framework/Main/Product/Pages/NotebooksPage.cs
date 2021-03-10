@@ -121,6 +121,7 @@ namespace AutomationFramework.Main.Product.Pages
         public NotebooksPage CkickToAddToCartButton(string name)
         {
             By notebookAddToCartButtonBy = By.XPath(string.Format(addToCartButtonLocator, name));
+            BrowserManager.GetInstance().MoveToElement(notebookAddToCartButtonBy);
             Button button = new Button(notebookAddToCartButtonBy);
             button.Click();
             return this;

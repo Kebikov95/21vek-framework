@@ -18,7 +18,7 @@ namespace AutomationFramework.Main.Product.Pages.Fragments
 
         public ChartPage ClickToChartButton()
         {
-            BrowserManager.GetInstance().Refresh();
+            BrowserManager.GetInstance().MoveToElement(cartButton);
             Button button = new Button(cartButton);
             button.Click();
             return new ChartPage();

@@ -8,7 +8,7 @@ using System;
 
 namespace AutomationFramework.Test.UI
 {
-    class NotebooksTest
+    class ShopTest
     {
         private Page homePage;
 
@@ -63,7 +63,7 @@ namespace AutomationFramework.Test.UI
             Assert.IsTrue(isMessagesPresent, "The required massages haven't existed on page.");
 
             string notificationText = learnAboutAdmissionPage.EnterNameField("user")
-                .EnterEmailField("email21vek@mail.com")
+                .EnterEmailField("email721vek@mail.com")
                 .ClickToSubmitButton()
                 .GetTextIntoNotificationLabel();
             Assert.AreEqual(notificationText, "Если товар появится на складе, вам придет сообщение на почту.", "The natification hasn't existed on page.");
@@ -84,13 +84,8 @@ namespace AutomationFramework.Test.UI
                 screenshot.SaveAsFile(@"..\..\..\..\Framework\Resources\Screenshots\" + timestamp +
                 ".png", ScreenshotImageFormat.Png);
             }
-        }
-
-        [TearDown]
-        public void Close()
-        {
-            IWebDriver driver = BrowserManager.GetInstance().WrappedDriver;
-            driver.Manage().Cookies.DeleteAllCookies();
+            // Если закрыть драйвер, то тесты из SpecFlow перестанут запскатся.
+            // BrowserManager.Stop();
         }
     }
 }

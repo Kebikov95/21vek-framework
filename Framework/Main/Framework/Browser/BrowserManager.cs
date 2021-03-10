@@ -2,6 +2,7 @@
 using Framework.Main.Framework.Browser;
 using NLog.Fluent;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Internal;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -129,6 +130,14 @@ namespace AutomationFramework.Main.Framework.Browser
             HighlightedWebElement highlightedWebElement = new HighlightedWebElement(wrappedDriver, element);
             SelectElement dropDownList = new SelectElement(highlightedWebElement);
             dropDownList.SelectByText(option);
+        }
+
+        public void MoveToElement(By by)
+        {
+            Actions actions = new Actions(WrappedDriver);
+            IWebElement element = WrappedDriver.FindElement(by);
+            actions.MoveToElement(element);
+            actions.Perform();
         }
     }
 }

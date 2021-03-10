@@ -198,18 +198,5 @@ namespace AutomationFramework.Test.Specflow.Steps
         {
             Assert.IsTrue(isDisplayRequiredFields, "The product hasn't had wait label.");
         }
-
-        [After]
-        public void TakeScreenShot()
-        {
-            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
-            {
-                ITakesScreenshot ssdriver = BrowserManager.GetInstance().WrappedDriver as ITakesScreenshot;
-                Screenshot screenshot = ssdriver.GetScreenshot();
-                string timestamp = DateTime.Now.ToString("yyyy-MM-dd-hhmm");
-                screenshot.SaveAsFile(@"..\..\..\..\Framework\Resources\Screenshots\" + timestamp +
-                ".png", ScreenshotImageFormat.Png);
-            }
-        }
     }
 }
