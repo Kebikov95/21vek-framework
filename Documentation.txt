@@ -55,3 +55,4 @@
 6.	Скорость работы тестов в Google Chrome быстрее чем в остальных браузерах.
 7.	В процессе написания фреймворка были использованы паттерны: PageObject, PageElement, Singleton, Factory, Decorator. 
 8.	Запуск тестов происходит при переходе во вкладку Test -> TestExploer -> Run All Test in View
+9.	Если тест не был пройден, то сохраняется скриншот по пути: \Resources\Screenshots\

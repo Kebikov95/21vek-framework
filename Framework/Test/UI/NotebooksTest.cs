@@ -4,7 +4,7 @@ using Framework.Main.Product.Pages.Fragments;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.Extensions;
+using System;
 
 namespace AutomationFramework.Test.UI
 {
@@ -73,6 +73,18 @@ namespace AutomationFramework.Test.UI
             Assert.IsTrue(isProductWithWaitLabel, "The product hasn't had wait label.");
         }
 
+        [OneTimeTearDown]
+        public void TakeScreenShot()
+        {
+            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+            {
+                ITakesScreenshot ssdriver = BrowserManager.GetInstance().WrappedDriver as ITakesScreenshot;
+                Screenshot screenshot = ssdriver.GetScreenshot();
+                string timestamp = DateTime.Now.ToString("yyyy-MM-dd-hhmm");
+                screenshot.SaveAsFile(@"..\..\..\..\Framework\Resources\Screenshots\" + timestamp +
+                ".png", ScreenshotImageFormat.Png);
+            }
+        }
 
         [TearDown]
         public void Close()

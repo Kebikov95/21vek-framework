@@ -3,6 +3,9 @@ using AutomationFramework.Main.Framework.Utils;
 using AutomationFramework.Main.Product.Pages;
 using Framework.Main.Product.Pages.Fragments;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using OpenQA.Selenium;
+using System;
 using TechTalk.SpecFlow;
 
 namespace AutomationFramework.Test.Specflow.Steps
@@ -194,6 +197,19 @@ namespace AutomationFramework.Test.Specflow.Steps
         public void ThenIShouldSeeTheTextOnTheWaitingList()
         {
             Assert.IsTrue(isDisplayRequiredFields, "The product hasn't had wait label.");
+        }
+
+        [After]
+        public void TakeScreenShot()
+        {
+            if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
+            {
+                ITakesScreenshot ssdriver = BrowserManager.GetInstance().WrappedDriver as ITakesScreenshot;
+                Screenshot screenshot = ssdriver.GetScreenshot();
+                string timestamp = DateTime.Now.ToString("yyyy-MM-dd-hhmm");
+                screenshot.SaveAsFile(@"..\..\..\..\Framework\Resources\Screenshots\" + timestamp +
+                ".png", ScreenshotImageFormat.Png);
+            }
         }
     }
 }
