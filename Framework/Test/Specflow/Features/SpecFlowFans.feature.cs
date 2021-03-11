@@ -142,7 +142,7 @@ this.FeatureBackground();
  testRunner.Then("I should see messages about empty required fields", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 18
- testRunner.Given("I enter name \'user\' and email \'email721vek@mail.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I enter name \'user\' and email \'email21vek@mail.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 19
  testRunner.Given("I click the button Submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");

@@ -20,6 +20,7 @@ namespace AutomationFramework.Main.Product.Pages.Fragments
         {
             BrowserManager.GetInstance().MoveToElement(cartButton);
             Button button = new Button(cartButton);
+            BrowserManager.GetInstance().Refresh();
             button.Click();
             return new ChartPage();
         }

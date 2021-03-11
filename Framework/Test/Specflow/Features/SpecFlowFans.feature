@@ -15,7 +15,7 @@ Scenario: Check the presence of the text in the waiting list under the product
 	Given I click the button Submit
 	When I check for messages about empty required fields in modal window
 	Then I should see messages about empty required fields
-	Given I enter name 'user' and email 'email721vek@mail.com'
+	Given I enter name 'user' and email 'email21vek@mail.com'
 	Given I click the button Submit
 	When I check for the presence of the text in the modal window
 	Then I should see the text 'Если товар появится на складе, вам придет сообщение на почту.'

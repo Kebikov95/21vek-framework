@@ -11,14 +11,7 @@ namespace AutomationFramework.Main.Framework.Utils
 
         public static string[] SplitStringToArray(string text, char separator = ',')
         {
-            string[] typeArray;
-            if (text.Contains(separator)) typeArray = text.Split(separator);
-            else
-            {
-                typeArray = new string[1];
-                typeArray[0] = text;
-            }
-            return typeArray;
+            return text.Split(new[] { separator }, System.StringSplitOptions.RemoveEmptyEntries);
         }
     }
 }

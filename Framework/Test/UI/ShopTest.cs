@@ -11,6 +11,7 @@ namespace AutomationFramework.Test.UI
     class ShopTest
     {
         private Page homePage;
+        private IWebDriver driver = BrowserManager.GetInstance().WrappedDriver;
 
         [SetUp]
         public void Inizialize()
@@ -63,7 +64,7 @@ namespace AutomationFramework.Test.UI
             Assert.IsTrue(isMessagesPresent, "The required massages haven't existed on page.");
 
             string notificationText = learnAboutAdmissionPage.EnterNameField("user")
-                .EnterEmailField("email721vek@mail.com")
+                .EnterEmailField("email21vek@mail.com")
                 .ClickToSubmitButton()
                 .GetTextIntoNotificationLabel();
             Assert.AreEqual(notificationText, "Если товар появится на складе, вам придет сообщение на почту.", "The natification hasn't existed on page.");
@@ -78,14 +79,20 @@ namespace AutomationFramework.Test.UI
         {
             if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
             {
-                ITakesScreenshot ssdriver = BrowserManager.GetInstance().WrappedDriver as ITakesScreenshot;
+                ITakesScreenshot ssdriver = driver as ITakesScreenshot;
                 Screenshot screenshot = ssdriver.GetScreenshot();
                 string timestamp = DateTime.Now.ToString("yyyy-MM-dd-hhmm");
                 screenshot.SaveAsFile(@"..\..\..\..\Framework\Resources\Screenshots\" + timestamp +
                 ".png", ScreenshotImageFormat.Png);
             }
-            // Если закрыть драйвер, то тесты из SpecFlow перестанут запскатся.
+            // Если закрыть драйвер, то тесты из SpecFlow перестанут запускаться.
             // BrowserManager.Stop();
+        }
+
+        [TearDown]
+        public void CleaRCookies()
+        {
+            driver.Manage().Cookies.DeleteAllCookies();
         }
     }
 }

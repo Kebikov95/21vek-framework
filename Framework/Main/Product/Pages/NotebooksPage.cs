@@ -10,7 +10,7 @@ namespace AutomationFramework.Main.Product.Pages
         private readonly string manufacturersCheckboxLocator = "//dt[text()='Производители']/../..//child::label/a[text()='{0}']";
         private readonly string notebookModelCheckboxLocator = "//dt/span[text()='Линейка']/../..//dd/label[@title='{0}']";
         private readonly string notebookTypeCheckboxLocator = "//dt/span[text()='Тип']/../..//label[@title='{0}']";
-        private readonly string addToCartButtonLocator = "//span[@class='result__name' and text()='{0}']/../../../..//div[contains(@class, 'result__tools')]//button[text()='В корзину']";
+        private readonly string addToCartLinkLocator = "//span[@class='result__name' and text()='{0}']/../../../..//div[contains(@class, 'result__tools')]//button[text()='В корзину']";
         private readonly string discountPriceLabelLocator = "//span[@class='result__name' and text()='{0}']/../../../..//div[contains(@class, 'result__tools')]//span[@data-special_offer='discount']";
 
         private By priceFromInput = By.XPath("//input[@name='filter[price][from]']");
@@ -120,10 +120,10 @@ namespace AutomationFramework.Main.Product.Pages
 
         public NotebooksPage CkickToAddToCartButton(string name)
         {
-            By notebookAddToCartButtonBy = By.XPath(string.Format(addToCartButtonLocator, name));
-            BrowserManager.GetInstance().MoveToElement(notebookAddToCartButtonBy);
-            Button button = new Button(notebookAddToCartButtonBy);
-            button.Click();
+            By notebookAddToCartLinkBy = By.XPath(string.Format(addToCartLinkLocator, name));
+            Link link = new Link(notebookAddToCartLinkBy);
+            BrowserManager.GetInstance().MoveToElement(notebookAddToCartLinkBy);
+            link.Click();
             return this;
         }
 
