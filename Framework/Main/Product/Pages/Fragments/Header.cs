@@ -6,14 +6,16 @@ namespace AutomationFramework.Main.Product.Pages.Fragments
 {
     class Header
     {
-        private By searchField = By.Id("j-search");
-        private By cartButton = By.XPath("//span[@class='headerCartLabel']/ancestor::a");
+        private readonly By searchField = By.Id("j-search");
+        private readonly By cartButton = By.XPath("//span[@class='headerCartLabel']/ancestor::a");
+        private readonly By searchButton = By.XPath("//button[@title='Искать']");
 
-        public void EnterSearchField(string text, bool isSubmit = false)
+        public Header EnterSearchField(string text, bool isSubmit = false)
         {
             TextField textField = new TextField(searchField);
             textField.SendKeys(text);
             if (isSubmit) textField.Submit();
+            return this;
         }
 
         public ChartPage ClickToChartButton()
@@ -23,6 +25,13 @@ namespace AutomationFramework.Main.Product.Pages.Fragments
             BrowserManager.GetInstance().Refresh();
             button.Click();
             return new ChartPage();
+        }
+
+        public Header ClickSearchButton()
+        {
+            Button button = new Button(searchButton);
+            button.Click();
+            return this;
         }
     }
 }

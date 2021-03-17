@@ -1,5 +1,6 @@
 ﻿using AutomationFramework.Main.Framework.UI.Elements;
 using Framework.Main.Framework.Browser;
+using NLog;
 using NLog.Fluent;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -12,6 +13,7 @@ namespace AutomationFramework.Main.Framework.Browser
 {
     class BrowserManager : IWrapsDriver
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
         private static ThreadLocal<BrowserManager> Instance = new ThreadLocal<BrowserManager>();
         private static IWebDriver wrappedDriver;
         private readonly string ScreenshotDirectoryPath = @"..\..\..\..\Framework\Resources\Screenshots";
@@ -23,19 +25,19 @@ namespace AutomationFramework.Main.Framework.Browser
         {
             wrappedDriver = WebDriverFactory.GetWebDriver(BrowserTypes.Chrome);
             wrappedDriver.Manage().Window.Maximize();
-            Log.Debug("Creating instance of WebDriver with ChromeDriver.");
+            logger.Debug("Creating instance of WebDriver with ChromeDriver.");
         }
 
         public static BrowserManager GetInstance()
         {
-            Log.Debug("Getting instance of browser.");
+            logger.Debug("Getting instance of browser.");
             if (Instance.Value == null) Instance.Value = new BrowserManager();
             return Instance.Value;
         }
 
         public static void Stop()
         {
-            Log.Debug("Stopping the browser.");
+            logger.Debug("Stopping the browser.");
             try
             {
                 if (Instance != null) Instance.Value.WrappedDriver.Quit();
@@ -52,7 +54,7 @@ namespace AutomationFramework.Main.Framework.Browser
             IWebDriver driver = BrowserManager.GetInstance().WrappedDriver;
             IJavaScriptExecutor executor = (IJavaScriptExecutor)driver;
             executor.ExecuteScript("window.scrollBy(0,1000)");
-            Log.Debug(string.Format("Scroll window by ({0}, {1})", p1, p2));
+            logger.Debug(string.Format("Scroll window by ({0}, {1})", p1, p2));
         }
 
         public void Refresh()
@@ -63,14 +65,14 @@ namespace AutomationFramework.Main.Framework.Browser
         public void NavigateToUrl(string url)
         {
             if (url == null) throw new ArgumentNullException("Invalid URL: URL cannot be null.");
-            Log.Debug("Navigating to " + url);
+            logger.Debug("Navigating to " + url);
             wrappedDriver.Navigate().GoToUrl(url);
         }
 
         public void Click(By by)
         {
             if (by == null) throw new ArgumentNullException(LocatorErrorMessage);
-            Log.Debug("Click on " + by);
+            logger.Debug("Click on " + by);
             IWebElement element = wrappedDriver.FindElement(by);
             HighlightedWebElement highlightedWebElement = new HighlightedWebElement(wrappedDriver, element);
             highlightedWebElement.Click();
@@ -80,7 +82,7 @@ namespace AutomationFramework.Main.Framework.Browser
         {
             if (by == null) throw new ArgumentNullException(LocatorErrorMessage);
             if (text == null) throw new ArgumentNullException("Invalid Text: Text cannot be null.");
-            Log.Debug("Send keys " + text + " to " + by);
+            logger.Debug("Send keys " + text + " to " + by);
             IWebElement element = wrappedDriver.FindElement(by);
             HighlightedWebElement highlightedWebElement = new HighlightedWebElement(wrappedDriver, element);
             highlightedWebElement.SendKeys(text);
@@ -89,7 +91,7 @@ namespace AutomationFramework.Main.Framework.Browser
         public void Submit(By by)
         {
             if (by == null) throw new ArgumentNullException(LocatorErrorMessage);
-            Log.Debug("Submit to " + by);
+            logger.Debug("Submit to " + by);
             IWebElement element = wrappedDriver.FindElement(by);
             HighlightedWebElement highlightedWebElement = new HighlightedWebElement(wrappedDriver, element);
             highlightedWebElement.Submit();
@@ -98,7 +100,7 @@ namespace AutomationFramework.Main.Framework.Browser
         public void Clear(By by)
         {
             if (by == null) throw new ArgumentNullException(LocatorErrorMessage);
-            Log.Debug("Clearing field " + by);
+            logger.Debug("Clearing field " + by);
             IWebElement element = wrappedDriver.FindElement(by);
             HighlightedWebElement highlightedWebElement = new HighlightedWebElement(wrappedDriver, element);
             highlightedWebElement.Clear();
@@ -107,7 +109,7 @@ namespace AutomationFramework.Main.Framework.Browser
         public string GetText(By by)
         {
             if (by == null) throw new ArgumentNullException(LocatorErrorMessage);
-            Log.Debug("Getting the text of WebElement located by " + by);
+            logger.Debug("Getting the text of WebElement located by " + by);
             IWebElement element = wrappedDriver.FindElement(by);
             HighlightedWebElement highlightedWebElement = new HighlightedWebElement(wrappedDriver, element);
             return highlightedWebElement.Text.Trim();
@@ -124,7 +126,7 @@ namespace AutomationFramework.Main.Framework.Browser
         {
             if (by == null) throw new ArgumentNullException(LocatorErrorMessage);
             if (option == null) throw new ArgumentNullException("Invalid Option: Option cannot be null.");
-            Log.Debug("Selecting option item - " + option);
+            logger.Debug("Selecting option item - " + option);
             Click(by);
             IWebElement element = wrappedDriver.FindElement(by);
             HighlightedWebElement highlightedWebElement = new HighlightedWebElement(wrappedDriver, element);

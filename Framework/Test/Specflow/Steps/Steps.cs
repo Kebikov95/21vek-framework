@@ -139,7 +139,7 @@ namespace AutomationFramework.Test.Specflow.Steps
         [Given(@"I click the search button Submit")]
         public void GivenIClickTheSearchButtonSubmit()
         {
-            homePage.ClickSearchButton();
+            homePage.GetHeader().ClickSearchButton();
         }
 
         [Given(@"I click under the product '(.*)' by the link inquire about receipt")]

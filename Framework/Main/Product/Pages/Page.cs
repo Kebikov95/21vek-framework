@@ -13,22 +13,12 @@ namespace AutomationFramework.Main.Product.Pages
         protected NavigationContainer navContainer = new NavigationContainer();
         protected LearnAboutAdmissionWindow learnAboutAdmissionWindow = new LearnAboutAdmissionWindow();
         private readonly string inWaitListLabelLocator = "//span[text()='{0}']/../../..//span[text()='В листе ожидания']";
-        private readonly By searchButton = By.XPath("//button[@title='Искать']");
 
-        public Header GetHeader()
-        {
-            return header;
-        }
+        public Header GetHeader() => header;
 
-        public NavigationContainer GetNavigationContainer()
-        {
-            return navContainer;
-        }
+        public NavigationContainer GetNavigationContainer() => navContainer;
 
-        public LearnAboutAdmissionWindow GetLearnAboutAdmissionWindow()
-        {
-            return learnAboutAdmissionWindow;
-        }
+        public LearnAboutAdmissionWindow GetLearnAboutAdmissionWindow() => learnAboutAdmissionWindow;
 
         public Page Open()
         {
@@ -42,13 +32,6 @@ namespace AutomationFramework.Main.Product.Pages
             Label label = new Label(inWaitListLabelBy);
             string text = label.GetText();
             return text.Contains("В листе ожидания");
-        }
-
-        public Page ClickSearchButton()
-        {
-            Button button = new Button(searchButton);
-            button.Click();
-            return this;
         }
     }
 }

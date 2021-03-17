@@ -1,6 +1,9 @@
-﻿using AutomationFramework.Main.Framework.Browser;
+﻿using Allure.Commons;
+using AutomationFramework.Main.Framework.Browser;
 using AutomationFramework.Main.Product.Pages;
 using Framework.Main.Product.Pages.Fragments;
+using NUnit.Allure.Attributes;
+using NUnit.Allure.Core;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -8,6 +11,8 @@ using System;
 
 namespace AutomationFramework.Test.UI
 {
+    [TestFixture]
+    [AllureDisplayIgnored]
     class ShopTest
     {
         private Page homePage;
@@ -21,7 +26,13 @@ namespace AutomationFramework.Test.UI
             BrowserManager.GetInstance().NavigateToUrl(homePage.Url);
         }
 
-        [Test]
+        [Test(Description = "Check Messages With Empty Required Fields")]
+        [AllureTag("CI")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureIssue("8911")]
+        [AllureTms("532")]
+        [AllureOwner("Kirill")]
+        [AllureSubSuite("Add")]
         public void CheckMessagesWithEmptyRequiredFields()
         {
             string notebookName = "Ноутбук Lenovo ThinkPad X1 Carbon Gen 8 (20U90006RT)";
@@ -50,12 +61,18 @@ namespace AutomationFramework.Test.UI
             Assert.IsTrue(isDisplayRequiredFields, "The required massages haven't existed on page.");
         }
 
-        [Test]
-        public void ChecTextUnderTheProductInWaitingList()
+        [Test(Description = "Check TextUnder The Product In Waiting List")]
+        [AllureTag("CI")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureIssue("8911")]
+        [AllureTms("532")]
+        [AllureOwner("Kirill")]
+        [AllureSubSuite("Add")]
+        public void CheckTextUnderTheProductInWaitingList()
         {
             string productName = "Фен Philips HP8233/00";
-            homePage.GetHeader().EnterSearchField("Фен Philips HP");
-            homePage.ClickSearchButton();
+            homePage.GetHeader().EnterSearchField("Фен Philips HP")
+                .ClickSearchButton();
             LearnAboutAdmissionWindow learnAboutAdmissionPage = homePage.GetLearnAboutAdmissionWindow()
                 .ClickToLearnAboutAdmissionButton(productName);
 
