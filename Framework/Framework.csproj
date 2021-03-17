@@ -23,6 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Resources\Allure-Results\" />
+    <Folder Include="Resources\Allure-Report\" />
     <Folder Include="Resources\Screenshots\" />
   </ItemGroup>
 

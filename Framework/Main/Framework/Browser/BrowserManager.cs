@@ -16,7 +16,6 @@ namespace AutomationFramework.Main.Framework.Browser
         private static Logger logger = LogManager.GetCurrentClassLogger();
         private static ThreadLocal<BrowserManager> Instance = new ThreadLocal<BrowserManager>();
         private static IWebDriver wrappedDriver;
-        private readonly string ScreenshotDirectoryPath = @"..\..\..\..\Framework\Resources\Screenshots";
         private static readonly string LocatorErrorMessage = "Invalid locator: Locator cannot be null.";
 
         public IWebDriver WrappedDriver => wrappedDriver;

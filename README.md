@@ -62,3 +62,29 @@ Scenario: Check for messages about empty required fields
 	When I check for messages about empty required fields
 	Then I should see messages about empty required fields
 ```
+___
+### Create HTML-report ([Allure](http://allure.qatools.ru/))
+1) Install [Scope](https://scoop.sh/)
+Type in console:
+```
+wr -useb get.scoop.sh | iex
+
+Note: if you get an error you might need to change the execution policy (i.e. enable Powershell) with
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+```
+2. Install [Allure](http://allure.qatools.ru/)
+Type in console:
+```
+scoop install allure
+```
+3. Generate a report
+Type in console:
+```
+allure serve 'allure-result-directory'
+
+for example: 
+allure serve C:\Users\Kiryl_Kebikau\source\repos\Framework\Framework\Resources\Allure-Results
+```
+
+#### After that you will see the generated HTML-report
+![HTML-report](https://docs.qameta.io/allure/images/tab_overview.png)

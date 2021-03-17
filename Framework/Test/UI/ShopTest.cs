@@ -12,7 +12,7 @@ using System;
 namespace AutomationFramework.Test.UI
 {
     [TestFixture]
-    [AllureDisplayIgnored]
+    [AllureNUnit]
     class ShopTest
     {
         private Page homePage;
@@ -26,12 +26,9 @@ namespace AutomationFramework.Test.UI
             BrowserManager.GetInstance().NavigateToUrl(homePage.Url);
         }
 
-        [Test(Description = "Check Messages With Empty Required Fields")]
+        [Test(Description = "Desc")]
         [AllureTag("CI")]
         [AllureSeverity(SeverityLevel.critical)]
-        [AllureIssue("8911")]
-        [AllureTms("532")]
-        [AllureOwner("Kirill")]
         [AllureSubSuite("Add")]
         public void CheckMessagesWithEmptyRequiredFields()
         {
@@ -61,12 +58,9 @@ namespace AutomationFramework.Test.UI
             Assert.IsTrue(isDisplayRequiredFields, "The required massages haven't existed on page.");
         }
 
-        [Test(Description = "Check TextUnder The Product In Waiting List")]
+        [Test(Description = "Desc")]
         [AllureTag("CI")]
         [AllureSeverity(SeverityLevel.critical)]
-        [AllureIssue("8911")]
-        [AllureTms("532")]
-        [AllureOwner("Kirill")]
         [AllureSubSuite("Add")]
         public void CheckTextUnderTheProductInWaitingList()
         {

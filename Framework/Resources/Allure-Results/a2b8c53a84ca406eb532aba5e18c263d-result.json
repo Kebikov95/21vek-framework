@@ -1,0 +1,76 @@
+{
+  "uuid": "51a62a25-cdb7-4cbf-a4a5-54c3620abec2-tr-0-1006",
+  "historyId": "AutomationFramework.Test.UI.ShopTest.CheckMessagesWithEmptyRequiredFields",
+  "fullName": "AutomationFramework.Test.UI.ShopTest.CheckMessagesWithEmptyRequiredFields",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "ParallelWorker#1"
+    },
+    {
+      "name": "host",
+      "value": "EPBYGOMW00D2"
+    },
+    {
+      "name": "testClass",
+      "value": "AutomationFramework.Test.UI.ShopTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "CheckMessagesWithEmptyRequiredFields"
+    },
+    {
+      "name": "package",
+      "value": "AutomationFramework.Test.UI.ShopTest"
+    },
+    {
+      "name": "tag",
+      "value": "CI"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "subSuite",
+      "value": "Add"
+    }
+  ],
+  "links": [],
+  "name": "CheckMessagesWithEmptyRequiredFields",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "Desc\n",
+  "steps": [
+    {
+      "name": "CheckMessagesWithEmptyRequiredFields",
+      "status": "passed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "cc2b1e46d9d640f8b82a2769e0a12774-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1616008022867,
+      "stop": 1616008081689
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1616008022866,
+  "stop": 1616008081696
+}

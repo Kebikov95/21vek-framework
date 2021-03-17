@@ -1,0 +1,80 @@
+{
+  "uuid": "7feb052f-d82a-44b7-993a-1391caa851ef-tr-0-1007",
+  "historyId": "AutomationFramework.Test.UI.ShopTest.CheckTextUnderTheProductInWaitingList",
+  "fullName": "AutomationFramework.Test.UI.ShopTest.CheckTextUnderTheProductInWaitingList",
+  "labels": [
+    {
+      "name": "thread",
+      "value": "ParallelWorker#1"
+    },
+    {
+      "name": "host",
+      "value": "EPBYGOMW00D2"
+    },
+    {
+      "name": "testClass",
+      "value": "AutomationFramework.Test.UI.ShopTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "CheckTextUnderTheProductInWaitingList"
+    },
+    {
+      "name": "package",
+      "value": "AutomationFramework.Test.UI.ShopTest"
+    },
+    {
+      "name": "tag",
+      "value": "CI"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "subSuite",
+      "value": "Add"
+    }
+  ],
+  "links": [],
+  "name": "CheckTextUnderTheProductInWaitingList",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  The natification hasn't existed on page.\r\n  Expected string length 56 but was 61. Strings differ at index 0.\r\n  Expected: \"Вы уже подписаны на обновления информации об этом товаре\"\r\n  But was:  \"Если товар появится на складе, вам придет сообщение на почту.\"\r\n  -----------^\r\n",
+    "trace": "   at AutomationFramework.Test.UI.ShopTest.CheckTextUnderTheProductInWaitingList() in C:\\Users\\Kiryl_Kebikau\\source\\repos\\Framework\\Framework\\Test\\UI\\ShopTest.cs:line 81\r\n"
+  },
+  "stage": "finished",
+  "description": "Desc\n",
+  "steps": [
+    {
+      "name": "CheckTextUnderTheProductInWaitingList",
+      "status": "failed",
+      "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false,
+        "message": "  The natification hasn't existed on page.\r\n  Expected string length 56 but was 61. Strings differ at index 0.\r\n  Expected: \"Вы уже подписаны на обновления информации об этом товаре\"\r\n  But was:  \"Если товар появится на складе, вам придет сообщение на почту.\"\r\n  -----------^\r\n",
+        "trace": "   at AutomationFramework.Test.UI.ShopTest.CheckTextUnderTheProductInWaitingList() in C:\\Users\\Kiryl_Kebikau\\source\\repos\\Framework\\Framework\\Test\\UI\\ShopTest.cs:line 81\r\n"
+      },
+      "stage": "finished",
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Console Output",
+          "source": "689751c0af0a4baa822a4b9ad493c77b-attachment.txt",
+          "type": "text/plain"
+        }
+      ],
+      "parameters": [],
+      "start": 1616008081729,
+      "stop": 1616008094543
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "start": 1616008081729,
+  "stop": 1616008094544
+}
